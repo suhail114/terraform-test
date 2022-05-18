@@ -129,7 +129,7 @@ resource "aws_instance" "myapp-server" {
 
   user_data = <<EOF
                  #!/bin/bash
-                 sudo yum update && yum install -y docker
+                 sudo yum update -y && yum install -y docker
                  sudo systemctl start docker
                  sudo usermod -aG docker ec2-user
                  sudo docker run -p 8080:8080 nginx
@@ -151,7 +151,7 @@ resource "aws_instance" "myapp-server-two" {
 
   user_data = <<EOF
                  #!/bin/bash
-                 sudo yum update && yum install -y docker
+                 sudo yum update -y && yum install -y docker
                  sudo systemctl start docker
                  sudo usermod -aG docker ec2-user
                  sudo docker run -p 8080:8080 nginx
