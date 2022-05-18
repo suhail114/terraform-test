@@ -128,7 +128,7 @@ resource "aws_instance" "myapp-server" {
     }
 
     provisioner "remote-exec" {
-        script = file("entry-script.sh")
+        script = file("entry-script-on-ec2.sh")
     }
 
     provisioner "local-exec" {
