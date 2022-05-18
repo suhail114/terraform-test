@@ -129,10 +129,10 @@ resource "aws_instance" "myapp-server" {
 
   user_data = <<EOF
                  #!/bin/bash
-                 apt-get update && apt-get install -y docker-ce
-                 systemctl start docker
-                 usermod -aG docker ec2-user
-                 docker run -p 8080:8080 nginx
+                 sudo yum update && yum install -y docker
+                 sudo systemctl start docker
+                 sudo usermod -aG docker ec2-user
+                 sudo docker run -p 8080:8080 nginx
               EOF
 }
 
@@ -151,9 +151,9 @@ resource "aws_instance" "myapp-server-two" {
 
   user_data = <<EOF
                  #!/bin/bash
-                 apt-get update && apt-get install -y docker-ce
-                 systemctl start docker
-                 usermod -aG docker ec2-user
-                 docker run -p 8080:8080 nginx
+                 sudo yum update && yum install -y docker
+                 sudo systemctl start docker
+                 sudo usermod -aG docker ec2-user
+                 sudo docker run -p 8080:8080 nginx
               EOF
 }
